@@ -1,0 +1,70 @@
+.dashboard {  
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 30%;
+  width: 50%;
+  background: $dark-blue;
+  opacity: .95;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(black, .15);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+
+  h1, h2 {
+    color: $off-white;
+    font-family: "poppins", sans-serif;
+    font-weight: 100;
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: $l-size;
+  }
+
+  &__option {
+    background-color: #2980b9;
+    color: $off-white;
+    font-size: 1.8rem;
+
+    &,
+    &:link,
+    &:visited { 
+      text-decoration: none;
+      padding: 1.5rem 3rem;
+      display: inline-block; /*Always use this on elements you want to give width, heigh, padding etc*/
+      border-radius: 3px;
+      transition: all .2s; /*Allow all elements to have animations for duration of .2s*/
+      position: relative; /*Origin for absolute position child elements ::after*/
+      
+
+      //change for button element
+      border: none;
+      cursor: pointer;
+    }
+    &:hover{
+      transform: translateY(-.3rem);
+      box-shadow: 0 1rem 2rem rgba(black, .2);/*x y blur color  y shadow going 10px down*/
+  
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6); 
+        opacity: 0;
+      }
+    }
+    
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(-.1rem);
+      box-shadow: 0 .5rem 1rem rgba(black, .2);
+    }
+
+  }
+
+}

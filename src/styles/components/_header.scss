@@ -1,0 +1,21 @@
+.header {
+}
+
+.header__content {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: $s-size 0;
+}
+
+.header__title {
+  font-family: "poppins", sans-serif;
+  color: white;
+  text-decoration: none;
+  h1 {
+    margin: 0;
+    color: $dark-grey;
+    font-size: 4rem;
+    font-weight: 400;
+  }
+}

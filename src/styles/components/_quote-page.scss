@@ -1,0 +1,39 @@
+.quote-page {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 30%;
+  width: 50%;
+  background: $dark-blue;
+  opacity: .95;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(black, .15);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+
+
+  &__buttons {
+    margin: 0 auto;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.quote {
+  min-height: 170px;
+  width: 80%;
+  margin: 0 auto;
+  padding: $l-size;
+  color: $off-white;
+  font-family: "poppins", sans-serif;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 100;
+  border: 1px solid white;
+  margin-bottom: 15px;
+
+}
