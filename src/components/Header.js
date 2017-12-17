@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { startLogout } from '../actions/auth';
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { startLogout } from "../actions/auth";
 
 export const Header = ({ startLogout }) => (
   <header className="header">
@@ -11,15 +11,19 @@ export const Header = ({ startLogout }) => (
           <h1>Generator</h1>
         </Link>
         <div>
-          <Link className="button button--link" to="#">Saved Items</Link>
-          <button className="button button--link" onClick={startLogout}>Logout</button>          
+          <Link className="button button--link" to="#">
+            Saved Items
+          </Link>
+          <button className="button button--link" onClick={startLogout}>
+            Logout
+          </button>
         </div>
       </div>
     </div>
   </header>
 );
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   startLogout: () => dispatch(startLogout())
 });
 

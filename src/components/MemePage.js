@@ -1,45 +1,39 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import Quote from "./Quote";
-
-export class QuotesPage extends React.Component {
+import Meme from "./Meme";
+export class MemePage extends React.Component {
   constructor() {
     super();
     this.state = {
-      quote: ""
+      memes: "",
+      currentMeme: ""
     };
   }
-  //https://talaikis.com/api/quotes/random/
 
-  getQuote = () => {
-    fetch(
-      "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1",
-      {
-        method: "get"
-      }
-    )
+  componentDidMount() {
+    fetch("https://api.imgflip.com/get_memes", { method: "get" })
       .then(response => {
         if (response.status !== 200) {
           console.log("Looks like there was a problem: " + response.status);
           return;
         }
-        response.json().then(data => {
-          console.log(data);
-          this.setState({ quote: data[0].content });
+        response.json().then(memes => {
+          console.log(memes.data.memes[0]);
+          this.setState({ memes: memes.data.memes });
+          this.setState({ currentMeme: memes.data.memes[0] });
         });
       })
       .catch(err => {
         console.log("Error: ", err.message);
       });
-  };
+  }
 
   render() {
     return (
-      <div className="quote-page">
+      <div className="meme-page">
         <div className="content-container">
-          <Quote quote={this.state.quote} />
-          <div className="quote-page__buttons">
+          <Meme meme={this.state.currentMeme} />
+          <div className="meme-page__buttons">
             <button className="button">Previous</button>
             <button className="button" onClick={this.getQuote}>
               Next
@@ -52,4 +46,4 @@ export class QuotesPage extends React.Component {
   }
 }
 
-export default connect(undefined, undefined)(QuotesPage);
+export default connect()(MemePage);
